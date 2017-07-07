@@ -42,10 +42,34 @@ class Queue
   end
 end
 
+queue = Queue.new
+queue.enqueue("John")
+queue.enqueue("Peter")
+queue.enqueue("Sam")
+queue.show
 
-class Node
-  def initialize(value,next_node)
-    @value = value
-    @next_node = next_node
+class Map
+  def initialize
+    @map = []
   end
+
+  def assign(key,value)
+    pair_index = @map.index {|pair| pair[0] == key}
+    pair_index ? @map[pair_index][1] = value : @map.push([key, value])
+    [key, value]
+  end
+
+  def lookup(key)
+    @map.each { |pair| return pair[1] if pair[0] == key }
+  end
+
+  def remove(key)
+    @map.each do |el|
+      @map.delete(el) if el[0] == "a"
+    end
+    nil
+  end
+
 end
+map = Map.new
+map.assign("a",1)
