@@ -18,8 +18,10 @@ class Simon
   end
 
   def take_turn
-    show_sequence
+    puts show_sequence
     require_sequence
+    # sleep(2)
+    # system("clear")
     round_success_message
     @sequence_length += 1
   end
@@ -29,7 +31,9 @@ class Simon
   end
 
   def require_sequence
-
+    # @user_seq = []
+    # puts "Please repeat back the new sequence ex.blue"
+    # @user_seq << gets.chomp
   end
 
   def add_random_color
@@ -37,11 +41,11 @@ class Simon
   end
 
   def round_success_message
-    
+    puts "you got it"
   end
 
   def game_over_message
-
+    puts "sorry"
   end
 
   def reset_game
@@ -50,3 +54,5 @@ class Simon
     @seq = []
   end
 end
+# game = Simon.new
+# game.play
